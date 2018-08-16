@@ -22,8 +22,8 @@ body {
 
 .modal {
   background-color: #fff;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 450px;
+  max-height: 450px;
   overflow: auto;
   top: 0;
   left: 0;
@@ -33,4 +33,9 @@ body {
   position: absolute;
   z-index: 10;
   padding: 20px;
+  text-align: left;
+}
+
+.list-container {
+  padding: 20px 0;
 }

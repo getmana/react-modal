@@ -20,7 +20,14 @@ const styles = () => ({
 });
 
 class App extends Component {
-  state = { isModalOpen: false }
+  state = {
+    isModalOpen: false,
+    initialList: [
+      { type: 2, number: 22 },
+      { type: 3, number: 12 },
+      { type: 4, number: 4 },
+    ],
+  }
 
   openModal = () => {
     this.setState({
@@ -34,12 +41,19 @@ class App extends Component {
     });
   }
 
+  updateList = (newList) => {
+    this.setState({
+      initialList: newList,
+    });
+    this.closeModal();
+  }
+
   render() {
-    const { isModalOpen } = this.state;
+    const { isModalOpen, initialList } = this.state;
     const { classes } = this.props;
     return (
       <div className="App">
-        <h1 className="App-title">Hello!</h1>
+        <h1>Hello!</h1>
         <p>Welcome to my page with the new Modal Component!</p>
         <Button variant="contained" color="primary" onClick={this.openModal}>
           Open Modal
@@ -51,7 +65,7 @@ class App extends Component {
               onDelete={this.closeModal}
               className={classes.chip}
             />
-            <List />
+            <List list={initialList} updateList={this.updateList} />
             <Button onClick={this.closeModal}>
               Cancel
             </Button>
@@ -65,7 +79,5 @@ class App extends Component {
 export default withStyles(styles)(App);
 
 App.propTypes = {
-  classes: PropTypes.shape({
-    chip: PropTypes.string,
-  }).isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };

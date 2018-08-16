@@ -13,12 +13,6 @@ const Modal = ({ children, onClose }) => (
 export default Modal;
 
 Modal.propTypes = {
-  children: PropTypes.shape({
-    props: PropTypes.object.isRequired,
-  }),
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClose: PropTypes.func.isRequired,
-};
-
-Modal.defaultProps = {
-  children: undefined,
 };
