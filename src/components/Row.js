@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
+import CloseIcon from '@material-ui/icons/Close';
 import red from '@material-ui/core/colors/red';
 
 const styles = (theme) => ({
@@ -59,7 +59,7 @@ const Row = ({
         className={classes.textField}
       />
       <IconButton variant="contained" color="secondary" className={classes.button} onClick={onClickButton}>
-        <Icon color="error">close</Icon>
+        <CloseIcon />
       </IconButton>
     </form>
   </Fragment>
